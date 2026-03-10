@@ -298,6 +298,11 @@
        </div>
       </div>
      </div>
+    <div class="text-center mt-10 mb-10">
+  <button onclick="showPage('report')" class="px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white font-semibold text-lg transition-all transform hover:scale-105">
+    📄 View Project Report
+  </button>
+</div>
     </section>
    </div><!-- Login Page -->
    <div id="page-login" class="page-content page-hidden">
@@ -451,7 +456,226 @@
       </div>
      </div>
     </section>
-   </div><!-- Footer -->
+   </div>
+   </div>
+   <!-- Report Page -->
+   <div id="page-report" class="page-content page-hidden">
+     <section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <button onclick="showPage('home')" class="mb-8 text-gray-400 hover:text-white flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg> Back
+      </button>
+
+      <div class="text-center mb-12">
+        <h1 class="font-display text-4xl font-bold mb-4 gradient-text">Project Report</h1>
+        <p class="text-gray-400">IT Career Roadmap — Software Engineering (24BCA24405)</p>
+      </div>
+
+      <!-- Introduction -->
+      <div class="gradient-border mb-6">
+        <div class="relative z-10 bg-[#12121a] rounded-2xl p-8">
+          <h2 class="font-display text-2xl font-bold mb-4 text-indigo-400">Introduction</h2>
+          <p class="text-gray-300 mb-4">The IT Career Roadmap is a full-stack web application designed to help students, freshers, and career-switchers navigate the vast and ever-evolving landscape of technology careers. With 50+ career paths across 18+ categories, the platform provides detailed roadmaps, salary insights, required skills, tools, certifications, and growth potential for each IT role.</p>
+          <h3 class="font-semibold text-white mb-2">Purpose</h3>
+          <p class="text-gray-300 mb-4">To design and develop a comprehensive IT Career Roadmap web application that helps users explore technology career paths with structured roadmaps, salary insights, and skill requirements.</p>
+          <h3 class="font-semibold text-white mb-2">Objectives</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-1">
+            <li>Provide 50+ detailed IT career paths with roadmaps and skill requirements</li>
+            <li>Allow users to register and login securely with hashed passwords</li>
+            <li>Enable users to contact the platform through a contact form</li>
+            <li>Store all user and contact data securely in a PostgreSQL database</li>
+            <li>Deploy the application online and make it accessible to everyone</li>
+            <li>Provide search and filter functionality for career exploration</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase 1 -->
+      <div class="gradient-border mb-6">
+        <div class="relative z-10 bg-[#12121a] rounded-2xl p-8">
+          <h2 class="font-display text-2xl font-bold mb-4 text-cyan-400">Phase 1: Requirement Analysis</h2>
+          <h3 class="font-semibold text-white mb-2 underline">Functional Requirements</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-1 mb-4">
+            <li>User Registration (Name, Email, Phone, Password)</li>
+            <li>Secure User Login with password verification</li>
+            <li>Career Search by keyword, skill, or tool</li>
+            <li>Category Filter (18+ categories)</li>
+            <li>Sort careers by Name, Salary, or Growth</li>
+            <li>Career Detail Modal with roadmap, skills, tools, certifications</li>
+            <li>Contact Form with message storage in database</li>
+            <li>Responsive design for mobile and desktop</li>
+          </ul>
+          <h3 class="font-semibold text-white mb-2 underline">Non-Functional Requirements</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-1 mb-4">
+            <li>Secure password hashing using bcryptjs</li>
+            <li>Fast page load and response time</li>
+            <li>Scalable backend using Node.js and Express</li>
+            <li>Reliable PostgreSQL database</li>
+            <li>24/7 availability via cloud deployment</li>
+          </ul>
+          <h3 class="font-semibold text-white mb-2 underline">Software Requirements</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-1">
+            <li>Frontend: HTML5, CSS3, JavaScript, Tailwind CSS</li>
+            <li>Backend: Node.js, Express.js</li>
+            <li>Database: PostgreSQL</li>
+            <li>Hosting: Netlify (Frontend), Render (Backend + Database)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="gradient-border mb-6">
+        <div class="relative z-10 bg-[#12121a] rounded-2xl p-8">
+          <h2 class="font-display text-2xl font-bold mb-4 text-purple-400">Phase 2: System Design</h2>
+          <h3 class="font-semibold text-white mb-2 underline">System Architecture</h3>
+          <p class="text-gray-300 mb-4">The system follows a 3-tier architecture:</p>
+          <ol class="list-decimal list-inside text-gray-300 space-y-1 mb-4">
+            <li>Presentation Layer (Frontend - HTML, CSS, JavaScript, Tailwind CSS)</li>
+            <li>Application Layer (Backend - Node.js, Express.js REST API)</li>
+            <li>Database Layer (PostgreSQL - Users & Contacts tables)</li>
+          </ol>
+          <h3 class="font-semibold text-white mb-2 underline">Database Design</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-[#0a0a0f] rounded-xl p-4">
+              <p class="text-indigo-400 font-semibold mb-2">Users Table</p>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li>id (Primary Key)</li>
+                <li>name (VARCHAR 100)</li>
+                <li>email (VARCHAR 100, UNIQUE)</li>
+                <li>phone (VARCHAR 20)</li>
+                <li>password (TEXT - Hashed)</li>
+                <li>created_at (TIMESTAMP)</li>
+              </ul>
+            </div>
+            <div class="bg-[#0a0a0f] rounded-xl p-4">
+              <p class="text-cyan-400 font-semibold mb-2">Contacts Table</p>
+              <ul class="text-gray-300 text-sm space-y-1">
+                <li>id (Primary Key)</li>
+                <li>name (VARCHAR 100)</li>
+                <li>email (VARCHAR 100)</li>
+                <li>subject (VARCHAR 200)</li>
+                <li>message (TEXT)</li>
+                <li>created_at (TIMESTAMP)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="gradient-border mb-6">
+        <div class="relative z-10 bg-[#12121a] rounded-2xl p-8">
+          <h2 class="font-display text-2xl font-bold mb-4 text-green-400">Phase 3: Implementation</h2>
+          <h3 class="font-semibold text-white mb-2">Modules Developed</h3>
+          <ol class="list-decimal list-inside text-gray-300 space-y-2 mb-4">
+            <li><span class="font-semibold text-white">Frontend Module</span> — Single HTML file with Tailwind CSS, dark theme, career cards, modals</li>
+            <li><span class="font-semibold text-white">Authentication Module</span> — Secure registration with bcryptjs password hashing and login verification</li>
+            <li><span class="font-semibold text-white">Backend API Module</span> — POST /api/signup, POST /api/login, POST /api/contact</li>
+          </ol>
+          <h3 class="font-semibold text-white mb-2">Sample Code</h3>
+          <div class="bg-[#0a0a0f] rounded-xl p-4 font-mono text-sm text-green-400">
+            <p>const bcrypt = require('bcryptjs');</p>
+            <p>const hashed = await bcrypt.hash(password, 10);</p>
+            <p>const match = await bcrypt.compare(password, hashed);</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="gradient-border mb-6">
+        <div class="relative z-10 bg-[#12121a] rounded-2xl p-8">
+          <h2 class="font-display text-2xl font-bold mb-4 text-yellow-400">Phase 4: Testing</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-gray-300">
+              <thead>
+                <tr class="bg-indigo-500/20">
+                  <th class="p-3 text-left border border-white/10">Test ID</th>
+                  <th class="p-3 text-left border border-white/10">Description</th>
+                  <th class="p-3 text-left border border-white/10">Expected</th>
+                  <th class="p-3 text-left border border-white/10">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border border-white/10"><td class="p-3">TC01</td><td class="p-3">Valid Signup</td><td class="p-3">Account created</td><td class="p-3 text-green-400">Pass</td></tr>
+                <tr class="border border-white/10"><td class="p-3">TC02</td><td class="p-3">Duplicate Email</td><td class="p-3">Error shown</td><td class="p-3 text-green-400">Pass</td></tr>
+                <tr class="border border-white/10"><td class="p-3">TC03</td><td class="p-3">Valid Login</td><td class="p-3">Login successful</td><td class="p-3 text-green-400">Pass</td></tr>
+                <tr class="border border-white/10"><td class="p-3">TC04</td><td class="p-3">Invalid Password</td><td class="p-3">Error shown</td><td class="p-3 text-green-400">Pass</td></tr>
+                <tr class="border border-white/10"><td class="p-3">TC05</td><td class="p-3">Contact Form</td><td class="p-3">Message saved</td><td class="p-3 text-green-400">Pass</td></tr>
+                <tr class="border border-white/10"><td class="p-3">TC06</td><td class="p-3">Career Search</td><td class="p-3">Filtered results</td><td class="p-3 text-green-400">Pass</td></tr>
+                <tr class="border border-white/10"><td class="p-3">TC07</td><td class="p-3">Category Filter</td><td class="p-3">Correct careers</td><td class="p-3 text-green-400">Pass</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 5 & 6 -->
+      <div class="gradient-border mb-6">
+        <div class="relative z-10 bg-[#12121a] rounded-2xl p-8">
+          <h2 class="font-display text-2xl font-bold mb-4 text-orange-400">Phase 5: Deployment</h2>
+          <ul class="list-disc list-inside text-gray-300 space-y-1 mb-6">
+            <li>Frontend deployed on Netlify</li>
+            <li>Backend deployed on Render</li>
+            <li>PostgreSQL database hosted on Render (Singapore)</li>
+            <li>GitHub repository used for version control</li>
+            <li>HTTPS enabled on both frontend and backend</li>
+          </ul>
+          <h2 class="font-display text-2xl font-bold mb-4 text-red-400">Phase 6: Maintenance</h2>
+          <ul class="list-disc list-inside text-gray-300 space-y-1">
+            <li>Regular updates to career data and salary ranges</li>
+            <li>Monitoring backend logs on Render dashboard</li>
+            <li>Database backup and recovery planning</li>
+            <li>Adding new career paths as IT industry evolves</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Risk, Advantages, Future -->
+      <div class="gradient-border mb-6">
+        <div class="relative z-10 bg-[#12121a] rounded-2xl p-8">
+          <h2 class="font-display text-2xl font-bold mb-4 text-pink-400">Risk Management</h2>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full text-sm text-gray-300">
+              <thead>
+                <tr class="bg-pink-500/20">
+                  <th class="p-3 text-left border border-white/10">Risk</th>
+                  <th class="p-3 text-left border border-white/10">Impact</th>
+                  <th class="p-3 text-left border border-white/10">Mitigation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border border-white/10"><td class="p-3">Data Breach</td><td class="p-3 text-red-400">High</td><td class="p-3">bcryptjs password hashing</td></tr>
+                <tr class="border border-white/10"><td class="p-3">Server Downtime</td><td class="p-3 text-yellow-400">Medium</td><td class="p-3">Render auto-restarts</td></tr>
+                <tr class="border border-white/10"><td class="p-3">Unauthorized Access</td><td class="p-3 text-red-400">High</td><td class="p-3">Secure API with input validation</td></tr>
+                <tr class="border border-white/10"><td class="p-3">Outdated Career Data</td><td class="p-3 text-yellow-400">Medium</td><td class="p-3">Regular manual updates</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h2 class="font-display text-2xl font-bold mb-4 text-indigo-400">Future Enhancements</h2>
+          <ul class="list-disc list-inside text-gray-300 space-y-1">
+            <li>User dashboard to track career progress</li>
+            <li>AI-based career recommendation system</li>
+            <li>Mobile application for Android and iOS</li>
+            <li>Integration with job portals like LinkedIn and Naukri</li>
+            <li>Admin panel to manage career data dynamically</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="gradient-border mb-6">
+        <div class="relative z-10 bg-[#12121a] rounded-2xl p-8">
+          <h2 class="font-display text-2xl font-bold mb-4 text-cyan-400">Conclusion</h2>
+          <p class="text-gray-300 mb-4">The IT Career Roadmap project developed using the SDLC model provides a structured and systematic approach to helping students and professionals navigate technology careers. By following all phases of SDLC, the system ensures reliability, security, and scalability.</p>
+          <p class="text-gray-300">This project demonstrates how software engineering principles can be effectively applied to build a full-stack web application that is both functional and valuable to its users.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+   </div>
+  <!-- Footer -->
+   
    <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-white/5 mt-12">
     <div class="max-w-7xl mx-auto">
      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -2222,5 +2446,6 @@ async function handleContactSubmit(e) {
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d9c050e20024826',t:'MTc3MzA3OTY1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
